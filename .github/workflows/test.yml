@@ -42,14 +42,16 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # Pin v4.1.1
+        with:
+          persist-credentials: false
 
       - name: Set Swap Space
-        uses: pierotofy/set-swap-space@master
+        uses: pierotofy/set-swap-space@fc79b3f67fa8a838184ce84a674ca12238d2c761 # master
         with:
           swap-size-gb: 256
 
       - name: Setup nextest
-        uses: taiki-e/install-action@nextest
+        uses: taiki-e/install-action@96601b43a0a57b0296684a021efcfa250db2e2cc # nextest
 
       - name: Setup Redis
         uses: shogo82148/actions-setup-redis@431421ba965051b89e86c474fd7e6d25eff0087f # Pin redis v7.2.5
